@@ -41,7 +41,6 @@ public class User {
 	
 	//Default constructor
 	protected User() {
-		
 	}
 
 	//Get id 
