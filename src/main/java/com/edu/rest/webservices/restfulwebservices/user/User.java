@@ -1,10 +1,12 @@
 package com.edu.rest.webservices.restfulwebservices.user;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
@@ -26,6 +28,10 @@ public class User {
 	@Past
 	@ApiModelProperty(notes="Birth date should be in the past")
 	private Date birthDate;
+	
+	//Relacion de un usuario puede tener muchos post, en este caso el 'N' es el post y el '1' es el user
+	@OneToMany(mappedBy = "user")//"user": nombre en la relación
+	private List<Post> posts;
 	
 	//Constructor
 	public User(Integer _id, String _name, Date _birthDate) {
@@ -85,5 +91,23 @@ public class User {
 	public String toString() {
 		
 		return "User [id=" + id + ", name=" + name + ", birthDate=" + birthDate + "]";
+	}
+	
+	/**
+	 * Get posts
+	 * @return List of posts
+	 */
+	
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	/**
+	 * Set post
+	 * @param posts post
+	 */
+	
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 }
