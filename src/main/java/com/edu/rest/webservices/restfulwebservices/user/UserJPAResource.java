@@ -46,10 +46,6 @@ public class UserJPAResource {
 		if (!user.isPresent()) 
 			throw new UserNotFoundException("id-" + id);
 		
-		//HATEOAS
-		
-		//"all-users", SERVER_PATH + "/users"
-		
 		Resource<User> resource = new Resource<User>(user.get());
 		
 		ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
@@ -58,10 +54,6 @@ public class UserJPAResource {
 		
 		return resource;
 	}
-	
-	//input - details of user
-
-	//output - CREATED & Return the created URI
 	
 	//HATEOAS
 	
