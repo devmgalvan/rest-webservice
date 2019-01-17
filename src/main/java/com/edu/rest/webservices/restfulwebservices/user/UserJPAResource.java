@@ -67,9 +67,6 @@ public class UserJPAResource {
 		
 		User savedUser = userRepository.save(user);
 		
-		//CREATED
-		// /users/4
-		
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/{id}")
